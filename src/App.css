@@ -19,4 +19,7 @@
   span.navbar-brand:hover {
     color: white;
   }
+  svg.icon-rotate.text-light {
+    margin-left: 0.5rem;
+  }
   

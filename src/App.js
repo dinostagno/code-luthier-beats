@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Navbar from './components/CustomNavbar';
-import Carrusel from './components/CarouselComponent';
+import NeckInfo from './components/NeckAdjustments';
+// import Carrusel from './components/CarouselComponent';
 // Importa otros componentes para las rutas
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <Carrusel />
+        <NeckInfo />
       </div>
     </Router>
   );
