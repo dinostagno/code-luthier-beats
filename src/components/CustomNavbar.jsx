@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
-import { FaSync, FaUser } from 'react-icons/fa';
+import { FaSync, FaUser, FaBars } from 'react-icons/fa';
 import '../App.css';
 
 function getNavbar() {
@@ -10,7 +10,9 @@ function getNavbar() {
       <Navbar.Brand>
         <FaSync className="icon-rotate text-light" /> Inicio
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav">
+        <FaBars /> {/* Icono para el Navbar.Toggle */}
+      </Navbar.Toggle>
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className="mr-auto">
           <Nav.Link as={Link} to="/about" className="text-light">Acerca de</Nav.Link>
@@ -27,3 +29,4 @@ function getNavbar() {
 }
 
 export default getNavbar;
+

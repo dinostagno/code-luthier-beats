@@ -22,4 +22,8 @@
   svg.icon-rotate.text-light {
     margin-left: 0.5rem;
   }
+  button.navbar-toggler {
+    color: white;
+    margin-right: 0.5rem;
+  }
   
