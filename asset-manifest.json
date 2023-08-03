@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/code-luthier-beats/static/css/main.b97b1453.css",
-    "main.js": "/code-luthier-beats/static/js/main.7d98452d.js",
+    "main.css": "/code-luthier-beats/static/css/main.f76770f7.css",
+    "main.js": "/code-luthier-beats/static/js/main.ada836c1.js",
     "static/js/787.3b17bc29.chunk.js": "/code-luthier-beats/static/js/787.3b17bc29.chunk.js",
     "index.html": "/code-luthier-beats/index.html",
-    "main.b97b1453.css.map": "/code-luthier-beats/static/css/main.b97b1453.css.map",
-    "main.7d98452d.js.map": "/code-luthier-beats/static/js/main.7d98452d.js.map",
+    "main.f76770f7.css.map": "/code-luthier-beats/static/css/main.f76770f7.css.map",
+    "main.ada836c1.js.map": "/code-luthier-beats/static/js/main.ada836c1.js.map",
     "787.3b17bc29.chunk.js.map": "/code-luthier-beats/static/js/787.3b17bc29.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b97b1453.css",
-    "static/js/main.7d98452d.js"
+    "static/css/main.f76770f7.css",
+    "static/js/main.ada836c1.js"
   ]
 }
