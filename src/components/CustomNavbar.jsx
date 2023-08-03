@@ -15,11 +15,11 @@ function getNavbar() {
       </Navbar.Toggle>
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/about" className="text-light">Acerca de</Nav.Link>
-          <Nav.Link as={Link} to="/contact" className="text-light">Contacto</Nav.Link>
+          <Nav.Link as={Link} to="code-luthier-beats/about" className="text-light">Acerca de</Nav.Link>
+          <Nav.Link as={Link} to="code-luthier-beats/contact" className="text-light">Contacto</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="/login" className="text-light">
+          <Nav.Link href="code-luthier-beats/login" className="text-light">
             <FaUser /> Iniciar sesión
           </Nav.Link>
         </Nav>
