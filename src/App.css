@@ -26,4 +26,10 @@
     color: white;
     margin-right: 0.5rem;
   }
-  
+  /* Estilo para quitar el borde en el focus del Navbar.Toggle */
+  .navbar-toggler:focus {
+  outline: none;
+  }
+  a.text-light.nav-link {
+    margin-left: 0.5rem;
+  }

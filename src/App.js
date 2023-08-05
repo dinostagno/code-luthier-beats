@@ -4,7 +4,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Navbar from './components/CustomNavbar';
 import NeckInfo from './components/NeckAdjustments';
 import Footer from './components/Footer';
-import Carrusel from './components/CarouselComponent';
+import Example from './components/Example';
+import CardExample from './components/CardExample';
+import MyProduct from './components/CardProduct';
+
+// import Carrusel from './components/CarouselComponent';
 // Importa otros componentes para las rutas
 
 function App() {
@@ -14,7 +18,10 @@ function App() {
         <Navbar />
         <NeckInfo />
         <Footer />
-        <Carrusel />
+        <Example />
+        <CardExample/>
+        <MyProduct/>
+        {/* <Carrusel /> */}
       </div>
     </Router>
   );
