@@ -27,6 +27,7 @@ function CustomNavbar() {
       <Navbar.Toggle
         aria-controls="basic-navbar-nav"
         onClick={handleNavbarToggle}
+        className="border-0"
       >
         {isNavbarOpen ? <FaTimes /> : <FaBars />}
       </Navbar.Toggle>
