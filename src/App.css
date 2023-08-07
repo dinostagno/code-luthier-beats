@@ -39,4 +39,28 @@
     box-shadow: none;
     /* box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width); */
   }
+
+  /* OperadoraAtencionCliente.css */
+.operadora-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.operadora-icon {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 24px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.operadora-icon:hover {
+  background-color: #0056b3;
+}
+
   

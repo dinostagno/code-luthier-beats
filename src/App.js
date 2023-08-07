@@ -11,6 +11,9 @@ import MyProduct from './components/CardProduct';
 
 import Carrusel from './components/CarouselComponent';
 import CarouselINews from './components/CarouselINews';
+import OperadoraAtencionCliente from './components/OperadoraAtencionCliente';
+
+
 
 // Importa otros componentes para las rutas
 
@@ -20,22 +23,18 @@ function App() {
       id: 1,
       src: './Pink_Floyd_logo.svg',
       alt: 'Imagen 1',
-      caption: 'Imagen 1',
-      description: 'Descripción de la Imagen 1',
+      // caption: 'Imagen 1',
+      // description: 'Descripción de la Imagen 1',
     },
     {
       id: 2,
       src: './Pink_Floyd_logo.svg',
       alt: 'Imagen 2',
-      caption: 'Imagen 2',
-      description: 'Descripción de la Imagen 2',
     },
     {
       id: 3,
       src: './Pink_Floyd_logo.svg',
       alt: 'Imagen 3',
-      caption: 'Imagen 3',
-      description: 'Descripción de la Imagen 3',
     },
   ];
   const productsData = [
@@ -114,6 +113,7 @@ function App() {
         {/* <SeccionesOffcanvas /> */}
         <ProductList products={productsData}/>
         {/* <NeckInfo /> */}
+        <OperadoraAtencionCliente />
         <Footer />
         
         {/* <Example /> */}
