@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Dropdown } from 'react-bootstrap';
 import { FaSync, FaUser, FaBars, FaTimes, FaEnvelope, FaInfoCircle } from 'react-icons/fa';
 import '../App.css';
 
@@ -11,24 +11,50 @@ function CustomNavbar() {
     setIsNavbarOpen(!isNavbarOpen);
   };
 
+  const handleProductsHover = () => {
+    console.log("Hover en la opción Products");
+  };
+
+  const handleMarketplaceHover = () => {
+    console.log("Hover en la opción Marketplace");
+  };
+
   return (
-    <Navbar bg="dark" expand="lg">
-      <Navbar.Brand>
+    <Navbar bg="dark" expand="lg" className="py-3">
+      <Navbar.Brand style={{ fontFamily: "BentonSans, Helvetica Neue, sans-serif" }}>
         <FaSync className="icon-rotate text-light" /> Code Luthier Beats
       </Navbar.Brand>
       <Navbar.Toggle
         aria-controls="basic-navbar-nav"
         onClick={handleNavbarToggle}
       >
-        {isNavbarOpen ? <FaTimes /> : <FaBars />} {/* Cambio de icono dependiendo del estado */}
+        {isNavbarOpen ? <FaTimes /> : <FaBars />}
       </Navbar.Toggle>
-      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end" in={isNavbarOpen}>
+      <Navbar.Collapse id="basic-navbar-nav" in={isNavbarOpen}>
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/code-luthier-beats/about" className="text-light"><FaInfoCircle /> Acerca de</Nav.Link>
-          <Nav.Link as={Link} to="/code-luthier-beats/contact" className="text-light"><FaEnvelope /> Contacto</Nav.Link>
+          <Dropdown as={Nav.Item}>
+            <Dropdown.Toggle as={Nav.Link} className="text-light" id="products-dropdown" onMouseEnter={handleProductsHover}>
+              Products
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="sub-menu" aria-labelledby="products-dropdown">
+              <Dropdown.Item as={Link} to="/code-luthier-beats/products/item1">Item 1</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/code-luthier-beats/products/item2">Item 2</Dropdown.Item>
+              {/* Add more items here */}
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown as={Nav.Item}>
+            <Dropdown.Toggle as={Nav.Link} className="text-light" id="marketplace-dropdown" onMouseEnter={handleMarketplaceHover}>
+              Marketplace
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="sub-menu" aria-labelledby="marketplace-dropdown">
+              <Dropdown.Item as={Link} to="/code-luthier-beats/products/item1">Item 1</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/code-luthier-beats/products/item2">Item 2</Dropdown.Item>
+              {/* Add more items here */}
+            </Dropdown.Menu>
+          </Dropdown>
         </Nav>
         <Nav>
-          <Nav.Link as={Link} to="/code-luthier-beats/login" className="text-light">
+          <Nav.Link as={Link} to="/code-luthier-beats/login" className="text-light justify-content-end">
             <FaUser /> Iniciar sesión
           </Nav.Link>
         </Nav>
@@ -38,5 +64,3 @@ function CustomNavbar() {
 }
 
 export default CustomNavbar;
-
-

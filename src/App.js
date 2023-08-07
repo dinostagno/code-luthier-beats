@@ -18,10 +18,10 @@ function App() {
         <Navbar />
         <NeckInfo />
         <Footer />
-        <Example />
-        <CardExample/>
-        <MyProduct/>
-        <Carrusel/>
+        {/* <Example /> */}
+        {/* <CardExample/> */}
+        {/* <MyProduct/> */}
+        {/* <Carrusel/> */}
         {/* <Carrusel /> */}
       </div>
     </Router>
