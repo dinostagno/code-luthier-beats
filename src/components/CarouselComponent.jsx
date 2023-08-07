@@ -32,13 +32,12 @@ function CarouselComponent() {
   }, []);
 
   const carouselStyle1 = {
-    backgroundImage: 'url("/Pink_Floyd_logo.svg")',
-    backgroundSize: "cover",
+    backgroundImage: 'url("./Pink_Floyd_logo.svg")',
     backgroundPosition: "center",
     height: `${windowHeight}px`,
   };
   const carouselStyle2 = {
-    backgroundImage: 'url("/Pink_Floyd,_1971.jpg")',
+    backgroundImage: 'url("./Pink_Floyd,_1971.jpg")',
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "auto",

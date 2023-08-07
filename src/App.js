@@ -8,7 +8,7 @@ import Example from './components/Example';
 import CardExample from './components/CardExample';
 import MyProduct from './components/CardProduct';
 
-// import Carrusel from './components/CarouselComponent';
+import Carrusel from './components/CarouselComponent';
 // Importa otros componentes para las rutas
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
         <Example />
         <CardExample/>
         <MyProduct/>
+        <Carrusel/>
         {/* <Carrusel /> */}
       </div>
     </Router>
