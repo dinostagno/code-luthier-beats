@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function Example() {
+function SeccionesOffcanvas() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,9 +10,11 @@ function Example() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch
-      </Button>
+      <div className="ml-2">
+        <Button variant="primary" onClick={handleShow}>
+          Secciones
+        </Button>
+      </div>
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
@@ -27,4 +29,5 @@ function Example() {
   );
 }
 
-export default Example;
+export default SeccionesOffcanvas;
+
