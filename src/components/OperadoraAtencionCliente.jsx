@@ -15,7 +15,7 @@ const OperadoraAtencionCliente = () => {
         placement="left"
         overlay={<Tooltip id="tooltip">Atención al Cliente</Tooltip>}
       >
-        <div className="operadora-icon" onClick={handleClick}>
+        <div id="operadora" className="operadora-icon" onClick={handleClick}>
           <img
             src="./franco.jpg" // Reemplaza con la ruta de tu imagen
             alt="Imagen de diálogo"
