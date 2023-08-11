@@ -11,9 +11,7 @@ import MyProduct from './components/CardProduct';
 
 import Carrusel from './components/CarouselComponent';
 import CarouselINews from './components/CarouselINews';
-import OperadoraAtencionCliente from './components/OperadoraAtencionCliente';
-import wash from './components/wash';
-
+import OperadoraAtencionCliente from './components/OperadoraAtencionCliente'
 
 
 // Importa otros componentes para las rutas
