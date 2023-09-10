@@ -32,33 +32,7 @@ function CustomNavbar() {
         {isNavbarOpen ? <FaTimes /> : <FaBars />}
       </Navbar.Toggle>
       <Navbar.Collapse id="basic-navbar-nav" in={isNavbarOpen}>
-        <Nav className="mr-auto">
-          <Dropdown as={Nav.Item}>
-            <Dropdown.Toggle as={Nav.Link} className="text-light" id="products-dropdown" onMouseEnter={handleProductsHover}>
-              Products
-            </Dropdown.Toggle>
-            <Dropdown.Menu className="sub-menu" aria-labelledby="products-dropdown">
-              <Dropdown.Item as={Link} to="/code-luthier-beats/products/item1">Item 1</Dropdown.Item>
-              <Dropdown.Item as={Link} to="/code-luthier-beats/products/item2">Item 2</Dropdown.Item>
-              {/* Add more items here */}
-            </Dropdown.Menu>
-          </Dropdown>
-          <Dropdown as={Nav.Item}>
-            <Dropdown.Toggle as={Nav.Link} className="text-light" id="marketplace-dropdown" onMouseEnter={handleMarketplaceHover}>
-              Marketplace
-            </Dropdown.Toggle>
-            <Dropdown.Menu className="sub-menu" aria-labelledby="marketplace-dropdown">
-              <Dropdown.Item as={Link} to="/code-luthier-beats/products/item1">Item 1</Dropdown.Item>
-              <Dropdown.Item as={Link} to="/code-luthier-beats/products/item2">Item 2</Dropdown.Item>
-              {/* Add more items here */}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Nav>
-        <Nav>
-          <Nav.Link as={Link} to="/code-luthier-beats/login" className="text-light justify-content-end">
-            <FaUser /> Iniciar sesión
-          </Nav.Link>
-        </Nav>
+       
       </Navbar.Collapse>
     </Navbar>
   );

@@ -17,7 +17,7 @@ const OperadoraAtencionCliente = () => {
       >
         <div id="operadora" className="operadora-icon" onClick={handleClick}>
           <img
-            src="./franco.jpg" // Reemplaza con la ruta de tu imagen
+            src="./bot.jpg" // Reemplaza con la ruta de tu imagen
             alt="Imagen de diálogo"
           />
         </div>

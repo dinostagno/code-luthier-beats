@@ -110,9 +110,9 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <AudioChatRoom />
-        <MiTarjeta />
-        <Login />
+        {/* <AudioChatRoom /> */}
+        {/* <MiTarjeta /> */}
+        {/* <Login /> */}
         <CarouselINews images={imagesData} />
         {/* <SeccionesOffcanvas /> */}
         <ProductList products={productsData}/>
