@@ -8,10 +8,12 @@ import ProductList from './components/ProductList';
 import SeccionesOffcanvas from './components/SeccionesOffcanvas';
 import CardExample from './components/CardExample';
 import MyProduct from './components/CardProduct';
-
+import AudioChatRoom from './components/AudioChatRoom';
 import Carrusel from './components/CarouselComponent';
 import CarouselINews from './components/CarouselINews';
+import MiTarjeta from './components/MiTarjeta';
 import OperadoraAtencionCliente from './components/OperadoraAtencionCliente'
+import Login from './components/Login'
 
 
 // Importa otros componentes para las rutas
@@ -108,12 +110,17 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        <AudioChatRoom />
+        <MiTarjeta />
+        <Login />
         <CarouselINews images={imagesData} />
         {/* <SeccionesOffcanvas /> */}
         <ProductList products={productsData}/>
         {/* <NeckInfo /> */}
         <OperadoraAtencionCliente />
         <Footer />
+
+        
         
         {/* <Example /> */}
         {/* <CardExample/> */}
