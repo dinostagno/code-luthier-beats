@@ -59,7 +59,7 @@ function App() {
       "id": 2,
       "precio": 14990,
       "titulo": "Notebook HP 14\"",
-      "imagen": "./Pink_Floyd_logo.jpg",
+      "imagen": "./Bontadi-Espresso-Bar.jpg",
       "descripcion": "Potente y ligera notebook HP de 14 pulgadas. Ideal para el trabajo y el entretenimiento.",
       "cantidad": 1
     },
