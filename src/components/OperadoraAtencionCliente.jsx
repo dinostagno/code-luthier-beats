@@ -17,8 +17,9 @@ const OperadoraAtencionCliente = () => {
       >
         <div id="operadora" className="operadora-icon" onClick={handleClick}>
           <img
-            src="./bot.jpg" // Reemplaza con la ruta de tu imagen
+            src="./bot.png" // Reemplaza con la ruta de tu imagen
             alt="Imagen de diálogo"
+            class="bot-style"
           />
         </div>
       </OverlayTrigger>

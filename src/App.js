@@ -14,6 +14,7 @@ import CarouselINews from './components/CarouselINews';
 import MiTarjeta from './components/MiTarjeta';
 import OperadoraAtencionCliente from './components/OperadoraAtencionCliente'
 import Login from './components/Login'
+import SalesforceLogin from './components/SalesforceLogin';
 
 
 // Importa otros componentes para las rutas
@@ -113,6 +114,7 @@ function App() {
         {/* <AudioChatRoom /> */}
         {/* <MiTarjeta /> */}
         {/* <Login /> */}
+        <SalesforceLogin />
         <CarouselINews images={imagesData} />
         {/* <SeccionesOffcanvas /> */}
         <ProductList products={productsData}/>

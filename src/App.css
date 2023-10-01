@@ -52,15 +52,32 @@
   background-color: #007bff;
   color: #fff;
   border-radius: 50%;
-  padding: 10px;
+  padding: 5px;
   font-size: 24px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  transform: scale(1.1); /* Cambiamos el tamaño al pasar el cursor */
+  animation: bounce 0.5s infinite alternate; /* Agregamos una animación de rebote */
 }
 
 .operadora-icon:hover {
-  background-color: #0056b3;
+  background-color: yellow;
+}
+@keyframes bounce {
+  to {
+    transform: scale(1.2); /* El tamaño máximo en el rebote */
+  }
+}
+.bot-style{
+  height: 80px;
+  width: 80px;
 }
 
+button.btn.btn-outline-light {
+  margin-right: 10px;
+}
+button.btn.btn-primary {
+  margin-top: 10px;
+}
   
