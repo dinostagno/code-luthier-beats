@@ -118,12 +118,13 @@ function App() {
     <Router>
       <div>
         <Navbar />
+        <SeccionesOffcanvas />
         {/* <AudioChatRoom /> */}
         {/* <MiTarjeta /> */}
         {/* <Login /> */}
         {/* <SalesforceLogin /> */}
         {/* <CarouselINews images={imagesData} /> */}
-        {/* <SeccionesOffcanvas /> */}
+        
         <ProductList products={productsData}/>
         {/* <NeckInfo /> */}
         <OperadoraAtencionCliente />
