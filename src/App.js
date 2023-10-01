@@ -22,21 +22,28 @@ import SalesforceLogin from './components/SalesforceLogin';
 function App() {
   const imagesData = [
     {
-      id: 1,
-      src: './Pink_Floyd_logo.svg',
-      alt: 'Imagen 1',
-      // caption: 'Imagen 1',
-      // description: 'Descripción de la Imagen 1',
+      "id": 1,
+      "precio": 7990,
+      "titulo": "Café Illy 250gr",
+      "imagen": "./cafe.jpg",
+      "descripcion": "Café colombiano de selección, grano tostado. Disfruta del auténtico sabor y aroma del café.",
+      "cantidad": 1
     },
     {
-      id: 2,
-      src: './Pink_Floyd_logo.svg',
-      alt: 'Imagen 2',
+      "id": 2,
+      "precio": 7990,
+      "titulo": "Café Illy 250gr",
+      "imagen": "./cafe.jpg",
+      "descripcion": "Café colombiano de selección, grano tostado. Disfruta del auténtico sabor y aroma del café.",
+      "cantidad": 1
     },
     {
-      id: 3,
-      src: './Pink_Floyd_logo.svg',
-      alt: 'Imagen 3',
+      "id": 3,
+      "precio": 7990,
+      "titulo": "Café Illy 250gr",
+      "imagen": "./cafe.jpg",
+      "descripcion": "Café colombiano de selección, grano tostado. Disfruta del auténtico sabor y aroma del café.",
+      "cantidad": 1
     },
   ];
   const productsData = [
@@ -114,8 +121,8 @@ function App() {
         {/* <AudioChatRoom /> */}
         {/* <MiTarjeta /> */}
         {/* <Login /> */}
-        <SalesforceLogin />
-        <CarouselINews images={imagesData} />
+        {/* <SalesforceLogin /> */}
+        {/* <CarouselINews images={imagesData} /> */}
         {/* <SeccionesOffcanvas /> */}
         <ProductList products={productsData}/>
         {/* <NeckInfo /> */}
