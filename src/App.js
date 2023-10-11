@@ -67,7 +67,7 @@ function App() {
       "id": 3,
       "precio": 24990,
       "titulo": "Zapatillas Nike Air Max",
-      "imagen": "./Pink_Floyd_logo.jpg",
+      "imagen": "./forte.jpg",
       "descripcion": "Las icónicas zapatillas Nike Air Max, brindan comodidad y estilo en cada paso.",
       "cantidad": 1
     },

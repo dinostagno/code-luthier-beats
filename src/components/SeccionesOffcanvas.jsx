@@ -10,7 +10,7 @@ function SeccionesOffcanvas() {
 
   return (
     <>
-      <div className="ml-2">
+      <div className="ml-2" style={{ marginLeft: '10px' }}>
         <Button variant="primary" onClick={handleShow}>
           Secciones
         </Button>
@@ -21,8 +21,7 @@ function SeccionesOffcanvas() {
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          Some text as a placeholder. In real life, you can have the elements you have chosen, like text, images, lists, etc.
         </Offcanvas.Body>
       </Offcanvas>
     </>
@@ -30,4 +29,3 @@ function SeccionesOffcanvas() {
 }
 
 export default SeccionesOffcanvas;
-
