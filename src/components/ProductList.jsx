@@ -1,70 +1,67 @@
-import React, { useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { FaShoppingCart } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import catalogo, { CATEGORIAS } from '../data/productos';
+import ProductCard from './ProductCard';
+import './ProductList.css';
 
-const ProductList = ({ products }) => {
-  const [cart, setCart] = useState({});
+// Los enlaces #cafe y #te de la barra activan el filtro correspondiente
+const categoriaDesdeHash = () => {
+  const hash = window.location.hash.slice(1);
+  return CATEGORIAS.some((c) => c.id === hash) ? hash : 'todos';
+};
 
-  // Función para actualizar la cantidad del producto en el carrito
-  const actualizarCantidad = (productId, cantidad) => {
-    setCart((prevCart) => ({
-      ...prevCart,
-      [productId]: cantidad,
-    }));
-  };
+function ProductList({ productos = catalogo, onAgregar }) {
+  const [categoria, setCategoria] = useState(categoriaDesdeHash);
 
-  // Función para calcular el precio total del producto con la cantidad seleccionada
-  const calcularPrecioTotal = (product) => {
-    const cantidad = cart[product.id] || 1;
-    return product.precio * cantidad;
-  };
+  useEffect(() => {
+    const sync = () => setCategoria(categoriaDesdeHash());
+    window.addEventListener('hashchange', sync);
+    return () => window.removeEventListener('hashchange', sync);
+  }, []);
 
-  // Función para agregar el producto al carrito
-  const agregarAlCarrito = (product) => {
-    const cantidad = cart[product.id] || 1;
-    // Aquí podrías implementar una lógica para enviar el producto al carrito global
-    console.log(`Agregado al carrito: ${cantidad}x ${product.titulo}`);
-  };
+  const visibles = categoria === 'todos'
+    ? productos
+    : productos.filter((p) => p.categoria === categoria);
 
   return (
-    <Container>
-      <h2>Listado de Productos</h2>
-      <Row>
-        {products.map((product) => (
-          <Col key={product.id} md={4}>
-            <Card className="mb-4">
-              <Card.Img variant="top" src={product.imagen} alt={product.titulo} />
-              <Card.Body>
-                <Card.Text>
-                  Cantidad:{' '}
-                  <input
-                    type="number"
-                    min="1"
-                    style={{ width: '50px', textAlign: 'center' }}
-                    value={cart[product.id] || 1}
-                    onChange={(e) => actualizarCantidad(product.id, parseInt(e.target.value))}
-                  />
-                </Card.Text>
-                <Card.Text>Precio: ${product.precio}</Card.Text>
-                <Card.Text>
-                  Precio Total: ${calcularPrecioTotal(product)}{' '}
-                  <button
-                    onClick={() => agregarAlCarrito(product)}
-                    style={{ marginLeft: '10px' }} // Ajusta el margen izquierdo aquí
-                  >
-                    <FaShoppingCart />
-                    Agregar al carrito
-                  </button>
-                </Card.Text>
-                <Card.Title>{product.titulo}</Card.Title>
-                <Card.Text>{product.descripcion}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <section className="clb-products" aria-labelledby="clb-products-title">
+      {/* Anclas de navegación (la sección tiene un solo id posible) */}
+      <span id="cafe" className="clb-anchor" />
+      <span id="te" className="clb-anchor" />
+
+      <div className="clb-products__inner">
+        <header className="clb-products__header">
+          <h2 id="clb-products-title">
+            La tienda. <span>Café y té seleccionados.</span>
+          </h2>
+
+          <div className="clb-segmented" role="tablist" aria-label="Filtrar por categoría">
+            {CATEGORIAS.map((c) => (
+              <button
+                key={c.id}
+                type="button"
+                role="tab"
+                aria-selected={categoria === c.id}
+                className={categoria === c.id ? 'is-active' : ''}
+                onClick={() => setCategoria(c.id)}
+              >
+                {c.label}
+              </button>
+            ))}
+          </div>
+        </header>
+
+        {visibles.length > 0 ? (
+          <div className="clb-products__grid">
+            {visibles.map((p) => (
+              <ProductCard key={p.id} producto={p} onAgregar={onAgregar} />
+            ))}
+          </div>
+        ) : (
+          <p className="clb-products__empty">Nuestra selección de tés llega pronto.</p>
+        )}
+      </div>
+    </section>
   );
-};
+}
 
 export default ProductList;

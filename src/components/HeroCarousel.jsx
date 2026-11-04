@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import destacados from '../data/destacados';
+import productos from '../data/productos';
 import './HeroCarousel.css';
 
 const INTERVALO_MS = 6000;
 const UMBRAL_SWIPE_PX = 50;
+const destacados = productos.filter((p) => p.destacado);
 
 function HeroCarousel({ slides = destacados }) {
   const [activo, setActivo] = useState(0);
@@ -59,8 +60,8 @@ function HeroCarousel({ slides = destacados }) {
             aria-hidden={i !== activo}
           >
             <div className="clb-hero__text">
-              <p className="clb-hero__eyebrow">{s.etiqueta}</p>
-              <h2 className="clb-hero__title">{s.titulo}</h2>
+              <p className="clb-hero__eyebrow">{s.etiqueta ?? s.formato}</p>
+              <h2 className="clb-hero__title">{s.nombre}</h2>
               <p className="clb-hero__desc">{s.descripcion}</p>
               <div className="clb-hero__ctas">
                 <a href="#cafe" className="clb-hero__btn" tabIndex={i === activo ? 0 : -1}>Comprar</a>
@@ -70,7 +71,7 @@ function HeroCarousel({ slides = destacados }) {
             <img
               className="clb-hero__img"
               src={`${import.meta.env.BASE_URL}${s.imagen}`}
-              alt={s.titulo}
+              alt={s.nombre}
               loading={i === 0 ? 'eager' : 'lazy'}
             />
           </article>
@@ -89,7 +90,7 @@ function HeroCarousel({ slides = destacados }) {
                 type="button"
                 className={`clb-hero__dot ${i === activo ? 'is-active' : ''}`}
                 onClick={() => ir(i)}
-                aria-label={`Ir a ${s.titulo}`}
+                aria-label={`Ir a ${s.nombre}`}
                 aria-current={i === activo}
               />
             ))}
