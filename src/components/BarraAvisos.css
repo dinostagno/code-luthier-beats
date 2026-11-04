@@ -1,12 +1,13 @@
-/* Franja de avisos: fondo azure, texto blanco, desplazamiento continuo. */
+/* Franja de avisos: fondo azure, texto oscuro, desplazamiento continuo. */
 
 .clb-ticker {
-  --ticker-bg: #007fff; /* azure */
+  --ticker-bg: #f0ffff; /* azure */
   --ticker-speed: 60s;  /* más alto = más lento */
   position: relative;
   overflow: hidden;
   background: var(--ticker-bg);
-  color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: #1d1d1f;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   font-size: 13px;
@@ -35,7 +36,7 @@
   height: 4px;
   margin: 0 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 @keyframes clb-ticker-scroll {
