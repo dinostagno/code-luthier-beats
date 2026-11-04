@@ -19,7 +19,7 @@ const OperadoraAtencionCliente = () => {
           <img
             src="./bot.png" // Reemplaza con la ruta de tu imagen
             alt="Imagen de diálogo"
-            class="bot-style"
+            className="bot-style"
           />
         </div>
       </OverlayTrigger>
