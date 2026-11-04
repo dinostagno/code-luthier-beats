@@ -14,11 +14,11 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* Compensa la barra fija al saltar a #cafe / #te */
+/* Compensa barra + franja fijas al saltar a #cafe / #te */
 .clb-anchor {
   position: absolute;
   top: 0;
-  scroll-margin-top: 52px;
+  scroll-margin-top: 90px;
 }
 
 .clb-products__inner {

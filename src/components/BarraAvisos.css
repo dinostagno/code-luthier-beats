@@ -3,7 +3,10 @@
 .clb-ticker {
   --ticker-bg: #f0ffff; /* azure */
   --ticker-speed: 60s;  /* más alto = más lento */
-  position: relative;
+  /* Fija bajo la barra de navegación (52px) al hacer scroll */
+  position: sticky;
+  top: 52px;
+  z-index: 1029;
   overflow: hidden;
   background: var(--ticker-bg);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
