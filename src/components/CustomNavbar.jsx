@@ -4,7 +4,7 @@ import { FiUser, FiShoppingBag, FiMenu, FiX, FiEye, FiEyeOff } from 'react-icons
 import Logo from './Logo';
 import './Navbar.css';
 
-// Secciones de la tienda. Para agregar o quitar una, edita esta lista.
+// Enlaces de navegación (anclas a secciones de la página).
 const SECCIONES = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Café', href: '#cafe' },
@@ -13,6 +13,7 @@ const SECCIONES = [
 ];
 
 function CustomNavbar() {
+  // Estado del menú móvil y del modal de autenticación
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +29,7 @@ function CustomNavbar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Pendiente: lógica de inicio de sesión o registro.
+    // TODO: integrar autenticación
   };
 
   return (
@@ -40,6 +41,7 @@ function CustomNavbar() {
             <span>Code Luthier Beats</span>
           </a>
 
+          {/* Enlaces visibles solo en escritorio */}
           <ul className="clb-nav__links">
             {SECCIONES.map((s) => (
               <li key={s.href}>
@@ -52,6 +54,7 @@ function CustomNavbar() {
             <button type="button" className="clb-nav__icon" onClick={abrirLogin} aria-label="Mi cuenta">
               <FiUser />
             </button>
+            {/* TODO: conectar con el carrito */}
             <button type="button" className="clb-nav__icon" aria-label="Carrito">
               <FiShoppingBag />
             </button>
@@ -67,7 +70,7 @@ function CustomNavbar() {
           </div>
         </nav>
 
-        {/* Menú desplegable para celulares */}
+        {/* Menú desplegable en pantallas ≤ 768px */}
         <div className="clb-nav__mobile" hidden={!menuAbierto}>
           <ul>
             {SECCIONES.map((s) => (
@@ -79,6 +82,7 @@ function CustomNavbar() {
         </div>
       </header>
 
+      {/* Modal de login / registro */}
       <Modal show={isLoginModalOpen} onHide={() => setIsLoginModalOpen(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>{isLoginForm ? 'Iniciar sesión' : 'Crear cuenta'}</Modal.Title>

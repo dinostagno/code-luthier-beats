@@ -1,6 +1,6 @@
-/* Barra de navegación estilo minimalista (inspirada en Apple):
-   fondo claro translúcido con desenfoque, tipografía del sistema, mucho aire. */
+/* Barra de navegación minimalista: fondo translúcido con desenfoque y tipografía del sistema. */
 
+/* Variables de diseño */
 .clb-nav {
   --nav-h: 52px;
   --nav-text: #1d1d1f;
@@ -104,7 +104,7 @@
   letter-spacing: -0.02em;
 }
 
-/* Celulares y tablets: los enlaces pasan al menú desplegable */
+/* Responsive: en móvil los enlaces pasan al menú desplegable */
 @media (max-width: 768px) {
   .clb-nav__links { display: none; }
   .clb-nav__toggle { display: inline-flex; }
