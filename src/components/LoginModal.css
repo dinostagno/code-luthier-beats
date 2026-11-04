@@ -1,0 +1,184 @@
+/* Modal de cuenta: tarjeta blanca redondeada, campos con etiqueta flotante y botón principal azul. */
+
+.clb-login {
+  --login-text: #1d1d1f;
+  --login-muted: #6e6e73;
+  --login-border: #d2d2d7;
+  --login-accent: #0071e3;
+  max-width: 420px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sobrescribe estilos por defecto de Bootstrap */
+.clb-login .modal-content {
+  position: relative;
+  border: 0;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  color: var(--login-text);
+  overflow: hidden;
+}
+
+.clb-login-backdrop.show {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.clb-login__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: #e8e8ed;
+  color: var(--login-muted);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.clb-login__close:hover { background: #dcdce1; color: var(--login-text); }
+
+.clb-login__body {
+  padding: 44px 40px 28px;
+  text-align: center;
+}
+
+.clb-login__logo {
+  display: inline-flex;
+  color: var(--login-text);
+  --logo-groove: #fff;
+  margin-bottom: 16px;
+}
+
+.clb-login h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.clb-login__subtitle {
+  margin: 6px 0 28px;
+  color: var(--login-muted);
+  font-size: 15px;
+}
+
+.clb-login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Campo con etiqueta flotante */
+.clb-field {
+  position: relative;
+}
+.clb-field input {
+  width: 100%;
+  height: 56px;
+  padding: 22px 16px 6px;
+  border: 1px solid var(--login-border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--login-text);
+  font-size: 17px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.clb-field input:focus {
+  border-color: var(--login-accent);
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
+}
+.clb-field label {
+  position: absolute;
+  left: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--login-muted);
+  font-size: 17px;
+  pointer-events: none;
+  transition: all 0.15s ease;
+}
+/* La etiqueta sube cuando el campo tiene foco o contenido */
+.clb-field input:focus + label,
+.clb-field input:not(:placeholder-shown) + label {
+  top: 16px;
+  font-size: 12px;
+}
+.clb-field:has(.clb-field__toggle) input { padding-right: 48px; }
+
+.clb-field__toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  padding: 8px;
+  border: 0;
+  background: none;
+  color: var(--login-muted);
+  font-size: 18px;
+  cursor: pointer;
+}
+.clb-field__toggle:hover { color: var(--login-text); }
+
+.clb-login__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 50px;
+  margin-top: 8px;
+  border: 0;
+  border-radius: 980px;
+  background: var(--login-accent);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.clb-login__submit:hover { background: #0077ed; }
+.clb-login__submit:focus-visible,
+.clb-field__toggle:focus-visible,
+.clb-login__close:focus-visible {
+  outline: 2px solid var(--login-accent);
+  outline-offset: 2px;
+}
+
+.clb-login__link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--login-accent);
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.clb-login__link:hover { text-decoration: underline; }
+
+.clb-login__footer {
+  padding: 18px 40px;
+  border-top: 1px solid #f0f0f2;
+  background: #fafafc;
+  color: var(--login-muted);
+  font-size: 14px;
+  text-align: center;
+}
+.clb-login__footer .clb-login__link { margin-top: 0; }
+
+@media (max-width: 480px) {
+  .clb-login__body { padding: 40px 24px 24px; }
+  .clb-login__footer { padding: 16px 24px; }
+}
