@@ -1,28 +1,29 @@
-import React, { useId } from 'react';
+import React from 'react';
 
-// Ilustración original de la marca: perfil en blanco y negro tomando café.
+// Ícono de atención al cliente: taza con carita y audífonos (SVG original de la marca).
 function Avatar({ size = 56, className = '' }) {
-  const clipId = useId(); // id único por instancia para el clipPath
-
   return (
     <svg width={size} height={size} viewBox="0 0 120 120" className={className} aria-hidden="true">
-      <defs>
-        <clipPath id={clipId}><circle cx="60" cy="60" r="60" /></clipPath>
-      </defs>
-      <g clipPath={`url(#${clipId})`}>
-        <rect width="120" height="120" fill="#111" />
-        {/* Cabeza y cuello */}
-        <path fill="#fff" d="M30 124 L33 100 C27 90 25 78 26 65 C27 43 42 29 61 29 C74 29 84 36 86 48 C87 52 87 54 89 57 L93 63 C94 65 93 66 91 66.5 L89 67 C90 69 89.5 70.5 88 71 C89 73 88.5 75 86 76 C86 80 84 83 79 84 L71 85 L69 124 Z" />
-        {/* Pelo */}
-        <path fill="#111" stroke="#fff" strokeWidth="2.6" strokeLinejoin="round" d="M27 66 C24 42 40 24 62 24 C76 24 87 31 89 45 C84 40 77 39 72 41 C68 37 61 38 58 42 C54 40 48 42 46 47 C41 47 38 52 39 57 C34 57 31 61 31 67 Z" />
-        {/* Ojo cerrado y oreja */}
-        <path fill="none" stroke="#111" strokeWidth="2.4" strokeLinecap="round" d="M71 54 C74 57 78 57 81 54.5 M47 60 C42 57 39 64 43 69 C45 71 47 70 47.5 68" />
-        {/* Taza */}
-        <path fill="#fff" stroke="#111" strokeWidth="3" d="M85 71 H107 L104 95 C103.6 98 101 100 98 100 H94 C91 100 88.6 98 88.2 95 Z" />
-        <path fill="none" stroke="#fff" strokeWidth="3.2" strokeLinecap="round" d="M105 77 C113 77 113 89 104.5 89" />
-        {/* Vapor */}
-        <path fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" d="M93 65 C90 60 96 57 93 51 M100 65 C97 59 103 56 100 49" />
+      <circle cx="60" cy="60" r="60" fill="#111" />
+      {/* Taza, plato y vapor */}
+      <path d="M79 64 C92 64 92 82 77 82" fill="none" stroke="#fff" strokeWidth="5" strokeLinecap="round" />
+      <path d="M37 55 H83 L79 88 C78.4 92.5 75 96 70.5 96 H49.5 C45 96 41.6 92.5 41 88 Z" fill="#fff" />
+      <ellipse cx="60" cy="100" rx="30" ry="3.5" fill="#fff" />
+      <path d="M60 49 C56 44 63 41 59 35 M68 49 C64 44 71 41 67 35" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+      {/* Carita */}
+      <g fill="none" stroke="#111" strokeWidth="2.6" strokeLinecap="round">
+        <path d="M51 70 C53 72.5 56 72.5 58 70 M64 70 C66 72.5 69 72.5 71 70" />
+        <path d="M55 79 C58 83 64 83 67 79" />
       </g>
+      <circle cx="49" cy="77" r="2.6" fill="#d9d9d9" />
+      <circle cx="73" cy="77" r="2.6" fill="#d9d9d9" />
+      {/* Audífonos con micrófono */}
+      <path d="M30 63 C30 38 43 25 60 25 C77 25 90 38 90 63" fill="none" stroke="#fff" strokeWidth="4.5" strokeLinecap="round" />
+      <rect x="23" y="56" width="13" height="21" rx="6" fill="#fff" stroke="#111" strokeWidth="2.5" />
+      <rect x="84" y="56" width="13" height="21" rx="6" fill="#fff" stroke="#111" strokeWidth="2.5" />
+      <path d="M30 76 C31 86 38 88 46 86" fill="none" stroke="#111" strokeWidth="7" strokeLinecap="round" />
+      <path d="M30 76 C31 86 38 88 46 86" fill="none" stroke="#fff" strokeWidth="3.5" strokeLinecap="round" />
+      <circle cx="48" cy="85.5" r="4.2" fill="#fff" stroke="#111" strokeWidth="2.5" />
     </svg>
   );
 }
