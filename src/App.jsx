@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/CustomNavbar';
 import HeroCarousel from './components/HeroCarousel';
 import ProductList from './components/ProductList';
-import OperadoraAtencionCliente from './components/OperadoraAtencionCliente';
+import AtencionCliente from './components/AtencionCliente';
 import Footer from './components/Footer';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         {/* TODO: pasar onAgregar cuando exista el carrito */}
         <ProductList />
       </main>
-      <OperadoraAtencionCliente />
+      <AtencionCliente />
       <Footer />
     </div>
   );
