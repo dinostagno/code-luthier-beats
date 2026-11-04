@@ -4,5 +4,12 @@
 export const WHATSAPP_NUMERO = '';
 export const HORARIO_ATENCION = 'Lunes a viernes, 9:00 a 18:00';
 
+// Mensajes de la franja bajo la barra (rotan cada pocos segundos)
+export const AVISOS = [
+  `Atención al cliente: ${HORARIO_ATENCION}`,
+  'Despacho a todo Chile, incluidas regiones',
+  'Haz tu pedido fácil por WhatsApp',
+];
+
 export const linkWhatsApp = (texto) =>
   `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(texto)}`;

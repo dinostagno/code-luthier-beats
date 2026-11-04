@@ -1,0 +1,68 @@
+/* Franja de avisos: fondo azure, texto blanco, desplazamiento continuo. */
+
+.clb-ticker {
+  --ticker-bg: #007fff; /* azure */
+  --ticker-speed: 60s;  /* más alto = más lento */
+  position: relative;
+  overflow: hidden;
+  background: var(--ticker-bg);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.clb-ticker__track {
+  display: flex;
+  width: max-content;
+  animation: clb-ticker-scroll var(--ticker-speed) linear infinite;
+}
+.clb-ticker:hover .clb-ticker__track { animation-play-state: paused; }
+
+.clb-ticker__item {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 0;
+  white-space: nowrap;
+}
+/* Separador entre avisos */
+.clb-ticker__item::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin: 0 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes clb-ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Solo visible para lectores de pantalla */
+.clb-ticker__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .clb-ticker { --ticker-speed: 45s; font-size: 12px; }
+  .clb-ticker__item { padding: 8px 0; }
+  .clb-ticker__item::after { margin: 0 24px; }
+}
+
+/* Sin animación: muestra el primer aviso centrado */
+@media (prefers-reduced-motion: reduce) {
+  .clb-ticker__track { animation: none; width: auto; justify-content: center; }
+  .clb-ticker__item:not(:first-child) { display: none; }
+  .clb-ticker__item::after { display: none; }
+}
