@@ -1,0 +1,171 @@
+/* Carrusel principal: slides apilados con transición de opacidad. */
+
+.clb-hero {
+  --hero-bg: #f5f5f7;
+  --hero-text: #1d1d1f;
+  --hero-muted: #6e6e73;
+  --hero-accent: #0071e3;
+  position: relative;
+  background: var(--hero-bg);
+  color: var(--hero-text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Todos los slides ocupan la misma celda de la grilla */
+.clb-hero__track {
+  display: grid;
+}
+.clb-hero__slide {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  max-width: 1024px;
+  width: 100%;
+  min-height: 560px;
+  margin: 0 auto;
+  padding: 64px 22px 96px;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.98);
+  transition: opacity 0.7s ease, transform 0.7s ease, visibility 0.7s;
+}
+.clb-hero__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.clb-hero__eyebrow {
+  margin: 0 0 8px;
+  color: #bf4800; /* acento cálido, color café */
+  font-size: 17px;
+  font-weight: 600;
+}
+.clb-hero__title {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.clb-hero__desc {
+  max-width: 28ch;
+  margin: 16px 0 28px;
+  color: var(--hero-muted);
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.clb-hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.clb-hero__btn {
+  padding: 11px 22px;
+  border-radius: 980px;
+  background: var(--hero-accent);
+  color: #fff;
+  font-size: 17px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.clb-hero__btn:hover { background: #0077ed; color: #fff; }
+.clb-hero__link {
+  color: var(--hero-accent);
+  font-size: 17px;
+  text-decoration: none;
+}
+.clb-hero__link:hover { text-decoration: underline; }
+
+/* multiply funde el fondo blanco de la foto con el gris del carrusel */
+.clb-hero__img {
+  justify-self: center;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+/* Controles: flechas + indicadores */
+.clb-hero__controls {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px;
+  border-radius: 980px;
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.clb-hero__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--hero-text);
+  font-size: 18px;
+  cursor: pointer;
+}
+.clb-hero__arrow:hover { background: rgba(0, 0, 0, 0.06); }
+.clb-hero__dots {
+  display: flex;
+  gap: 8px;
+}
+.clb-hero__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 980px;
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+.clb-hero__dot.is-active {
+  width: 24px;
+  background: var(--hero-text);
+}
+.clb-hero__btn:focus-visible,
+.clb-hero__link:focus-visible,
+.clb-hero__arrow:focus-visible,
+.clb-hero__dot:focus-visible {
+  outline: 2px solid var(--hero-accent);
+  outline-offset: 2px;
+}
+
+/* Móvil: texto arriba, imagen abajo, todo centrado */
+@media (max-width: 768px) {
+  .clb-hero__slide {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    min-height: 0;
+    padding: 32px 22px 84px;
+    text-align: center;
+  }
+  .clb-hero__eyebrow { font-size: 15px; }
+  .clb-hero__title { font-size: 36px; }
+  .clb-hero__desc { margin: 10px auto 20px; font-size: 17px; }
+  .clb-hero__ctas { justify-content: center; }
+  .clb-hero__btn, .clb-hero__link { font-size: 15px; }
+  .clb-hero__img { max-width: 240px; }
+  .clb-hero__controls { bottom: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clb-hero__slide { transition: none; }
+}

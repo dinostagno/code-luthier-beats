@@ -14,7 +14,7 @@ import MiTarjeta from './components/MiTarjeta';
 import OperadoraAtencionCliente from './components/OperadoraAtencionCliente'
 import Login from './components/Login'
 import SalesforceLogin from './components/SalesforceLogin';
-import CarouselProducts from './components/CarouselProducts';
+import HeroCarousel from './components/HeroCarousel';
 
 
 // Importa otros componentes para las rutas
@@ -118,7 +118,7 @@ function App() {
     <Router>
       <div id="inicio">
         <Navbar />
-        <CarouselProducts />
+        <HeroCarousel />
         
         {/* <AudioChatRoom /> */}
         {/* <MiTarjeta /> */}
