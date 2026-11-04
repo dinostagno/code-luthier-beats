@@ -1,0 +1,115 @@
+/* Barra de navegación estilo minimalista (inspirada en Apple):
+   fondo claro translúcido con desenfoque, tipografía del sistema, mucho aire. */
+
+.clb-nav {
+  --nav-h: 52px;
+  --nav-text: #1d1d1f;
+  --nav-muted: #6e6e73;
+  --logo-groove: #fbfbfd;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: rgba(251, 251, 253, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.clb-nav__inner {
+  max-width: 1024px;
+  height: var(--nav-h);
+  margin: 0 auto;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.clb-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.clb-nav__brand:hover { color: var(--nav-text); }
+
+.clb-nav__links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.clb-nav__links a {
+  color: var(--nav-text);
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+}
+.clb-nav__links a:hover { opacity: 1; }
+
+.clb-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.clb-nav__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--nav-text);
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+.clb-nav__icon:hover { opacity: 1; background: rgba(0, 0, 0, 0.05); }
+.clb-nav__icon:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+}
+
+.clb-nav__toggle { display: none; }
+
+.clb-nav__mobile ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px 22px 24px;
+}
+.clb-nav__mobile a {
+  display: block;
+  padding: 12px 0;
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Celulares y tablets: los enlaces pasan al menú desplegable */
+@media (max-width: 768px) {
+  .clb-nav__links { display: none; }
+  .clb-nav__toggle { display: inline-flex; }
+  .clb-nav.is-open { background: rgba(251, 251, 253, 0.97); }
+}
+@media (min-width: 769px) {
+  .clb-nav__mobile { display: none; }
+}

@@ -5,7 +5,6 @@ import Navbar from './components/CustomNavbar';
 import NeckInfo from './components/NeckAdjustments';
 import Footer from './components/Footer';
 import ProductList from './components/ProductList';
-import SeccionesOffcanvas from './components/SeccionesOffcanvas';
 import CardExample from './components/CardExample';
 import MyProduct from './components/CardProduct';
 import AudioChatRoom from './components/AudioChatRoom';
@@ -117,9 +116,8 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div id="inicio">
         <Navbar />
-        <SeccionesOffcanvas />
         <CarouselProducts />
         
         {/* <AudioChatRoom /> */}
