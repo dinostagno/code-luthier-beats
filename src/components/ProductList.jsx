@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import catalogo, { CATEGORIAS } from '../data/productos';
-import { LuCoffee } from 'react-icons/lu';
-import { TbTeapot } from 'react-icons/tb';
+import { LuLeaf } from 'react-icons/lu';
 import ProductCard from './ProductCard';
 import Logo from './Logo';
 import './ProductList.css';
 
-// "Todo" usa el grano del logo de la tienda
-const IconoTodo = () => <Logo size="1em" />;
-const ICONOS = { todos: IconoTodo, cafe: LuCoffee, te: TbTeapot };
+// Café usa el grano del logo de la tienda; té, una hoja
+const IconoCafe = () => <Logo size="1em" />;
+const ICONOS = { cafe: IconoCafe, te: LuLeaf };
+const FILTROS = CATEGORIAS.filter((c) => c.id !== 'todos');
 
 // Los enlaces #cafe y #te de la barra activan el filtro correspondiente
 const categoriaDesdeHash = () => {
@@ -24,6 +24,9 @@ function ProductList({ productos = catalogo, onAgregar }) {
     window.addEventListener('hashchange', sync);
     return () => window.removeEventListener('hashchange', sync);
   }, []);
+
+  // Tocar el filtro activo lo desactiva y vuelve a mostrar todo
+  const alternar = (id) => setCategoria((actual) => (actual === id ? 'todos' : id));
 
   const visibles = categoria === 'todos'
     ? productos
@@ -41,20 +44,20 @@ function ProductList({ productos = catalogo, onAgregar }) {
             La tienda. <span>Café y té seleccionados.</span>
           </h2>
 
-          {/* Filtro con botones circulares de ícono; el nombre va en aria-label y tooltip */}
-          <div className="clb-filter" role="tablist" aria-label="Filtrar por categoría">
-            {CATEGORIAS.map((c) => {
+          {/* Filtros de ícono (activar/desactivar); sin selección se muestra todo */}
+          <div className="clb-filter" role="group" aria-label="Filtrar por categoría">
+            {FILTROS.map((c) => {
               const Icono = ICONOS[c.id];
+              const activo = categoria === c.id;
               return (
                 <button
                   key={c.id}
                   type="button"
-                  role="tab"
-                  aria-selected={categoria === c.id}
+                  aria-pressed={activo}
                   aria-label={c.label}
-                  title={c.label}
-                  className={categoria === c.id ? 'is-active' : ''}
-                  onClick={() => setCategoria(c.id)}
+                  title={activo ? `${c.label} · tocar para ver todo` : c.label}
+                  className={activo ? 'is-active' : ''}
+                  onClick={() => alternar(c.id)}
                 >
                   <Icono aria-hidden="true" />
                 </button>
