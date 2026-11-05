@@ -24,7 +24,6 @@
   width: max-content;
   animation: clb-ticker-scroll var(--ticker-speed) linear infinite;
 }
-.clb-ticker:hover .clb-ticker__track { animation-play-state: paused; }
 
 .clb-ticker__item {
   display: inline-flex;
