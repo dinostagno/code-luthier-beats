@@ -1,0 +1,119 @@
+/* Pie de página: fondo gris claro, tipografía pequeña, columnas en escritorio y acordeón en móvil. */
+
+.clb-footer {
+  --ft-bg: #f5f5f7;
+  --ft-text: #1d1d1f;
+  --ft-muted: #6e6e73;
+  --ft-line: #d2d2d7;
+  --logo-groove: var(--ft-bg);
+  background: var(--ft-bg);
+  color: var(--ft-muted);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  scroll-margin-top: 90px; /* barra + franja fijas */
+}
+
+.clb-footer__inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 20px 22px 24px;
+}
+
+.clb-footer__note {
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ft-line);
+}
+
+/* Columnas */
+.clb-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 24px 0;
+}
+.clb-footer__col summary {
+  margin-bottom: 10px;
+  color: var(--ft-text);
+  font-weight: 600;
+  list-style: none;
+}
+.clb-footer__col summary::-webkit-details-marker { display: none; }
+
+/* Lista de enlaces */
+.clb-footer__col > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.clb-footer__col li { margin-bottom: 8px; }
+.clb-footer__col a {
+  color: var(--ft-muted);
+  text-decoration: none;
+}
+.clb-footer__col a:hover { color: var(--ft-text); text-decoration: underline; }
+.clb-footer__muted { color: #86868b; }
+
+/* Línea inferior */
+.clb-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ft-line);
+}
+.clb-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ft-text);
+  font-weight: 600;
+}
+.clb-footer__country { margin-left: auto; }
+
+.clb-footer a:focus-visible,
+.clb-footer summary:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Móvil: acordeón */
+@media (max-width: 768px) {
+  /* Espacio extra abajo para que el botón flotante no tape el texto */
+  .clb-footer__inner { padding: 20px 16px 88px; }
+  .clb-footer__cols {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 8px 0 16px;
+  }
+  .clb-footer__col { border-bottom: 1px solid var(--ft-line); }
+  .clb-footer__col summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 14px 0;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .clb-footer__col summary::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid var(--ft-muted);
+    border-bottom: 1.5px solid var(--ft-muted);
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+  .clb-footer__col[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+  .clb-footer__col > ul { padding: 0 0 12px 12px; }
+  .clb-footer__col li { font-size: 14px; margin-bottom: 10px; }
+  .clb-footer__bottom { flex-direction: column; align-items: flex-start; border-top: 0; }
+  .clb-footer__country { margin-left: 0; }
+}

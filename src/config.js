@@ -1,4 +1,6 @@
 // Configuración general de la tienda.
+export const NOMBRE_TIENDA = 'Code Luthier Beats';
+
 // Número de WhatsApp en formato internacional, sin "+" ni espacios (ej: 56912345678).
 // Vacío: WhatsApp pide al usuario elegir el contacto.
 export const WHATSAPP_NUMERO = '';

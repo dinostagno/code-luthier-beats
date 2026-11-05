@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FiUser, FiShoppingBag, FiMenu, FiX } from 'react-icons/fi';
 import Logo from './Logo';
 import LoginModal from './LoginModal';
+import { NOMBRE_TIENDA } from '../config';
 import './Navbar.css';
 
 // Enlaces de navegación (anclas a secciones de la página).
@@ -28,7 +29,7 @@ function CustomNavbar() {
         <nav className="clb-nav__inner" aria-label="Principal">
           <a href="#inicio" className="clb-nav__brand" onClick={() => setMenuAbierto(false)}>
             <Logo />
-            <span>Code Luthier Beats</span>
+            <span>{NOMBRE_TIENDA}</span>
           </a>
 
           {/* Enlaces visibles solo en escritorio */}
