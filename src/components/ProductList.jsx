@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import catalogo, { CATEGORIAS } from '../data/productos';
-import { LuLayoutGrid, LuCoffee } from 'react-icons/lu';
+import { LuCoffee } from 'react-icons/lu';
 import { TbTeapot } from 'react-icons/tb';
 import ProductCard from './ProductCard';
+import Logo from './Logo';
 import './ProductList.css';
 
-const ICONOS = { todos: LuLayoutGrid, cafe: LuCoffee, te: TbTeapot };
+// "Todo" usa el grano del logo de la tienda
+const IconoTodo = () => <Logo size="1em" />;
+const ICONOS = { todos: IconoTodo, cafe: LuCoffee, te: TbTeapot };
 
 // Los enlaces #cafe y #te de la barra activan el filtro correspondiente
 const categoriaDesdeHash = () => {

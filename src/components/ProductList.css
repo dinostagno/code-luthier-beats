@@ -60,15 +60,17 @@
   border: 0;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.05);
+  --logo-groove: #f2f2f2; /* surco del grano = color del botón */
   color: var(--pl-muted);
   font-size: 17px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
-.clb-filter button:hover { background: rgba(0, 0, 0, 0.09); color: var(--pl-text); }
+.clb-filter button:hover { background: rgba(0, 0, 0, 0.09); --logo-groove: #e8e8e8; color: var(--pl-text); }
 .clb-filter button:active { transform: scale(0.94); }
 .clb-filter button.is-active {
   background: var(--pl-text);
+  --logo-groove: var(--pl-text);
   color: #fff;
 }
 
