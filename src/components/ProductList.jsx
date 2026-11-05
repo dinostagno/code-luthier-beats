@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import catalogo, { CATEGORIAS } from '../data/productos';
+import { LuLayoutGrid, LuCoffee } from 'react-icons/lu';
+import { TbTeapot } from 'react-icons/tb';
 import ProductCard from './ProductCard';
 import './ProductList.css';
+
+const ICONOS = { todos: LuLayoutGrid, cafe: LuCoffee, te: TbTeapot };
 
 // Los enlaces #cafe y #te de la barra activan el filtro correspondiente
 const categoriaDesdeHash = () => {
@@ -34,19 +38,25 @@ function ProductList({ productos = catalogo, onAgregar }) {
             La tienda. <span>Café y té seleccionados.</span>
           </h2>
 
-          <div className="clb-segmented" role="tablist" aria-label="Filtrar por categoría">
-            {CATEGORIAS.map((c) => (
-              <button
-                key={c.id}
-                type="button"
-                role="tab"
-                aria-selected={categoria === c.id}
-                className={categoria === c.id ? 'is-active' : ''}
-                onClick={() => setCategoria(c.id)}
-              >
-                {c.label}
-              </button>
-            ))}
+          {/* Filtro con botones circulares de ícono; el nombre va en aria-label y tooltip */}
+          <div className="clb-filter" role="tablist" aria-label="Filtrar por categoría">
+            {CATEGORIAS.map((c) => {
+              const Icono = ICONOS[c.id];
+              return (
+                <button
+                  key={c.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={categoria === c.id}
+                  aria-label={c.label}
+                  title={c.label}
+                  className={categoria === c.id ? 'is-active' : ''}
+                  onClick={() => setCategoria(c.id)}
+                >
+                  <Icono aria-hidden="true" />
+                </button>
+              );
+            })}
           </div>
         </header>
 
