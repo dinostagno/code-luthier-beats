@@ -1,0 +1,35 @@
+/* Estilos globales del sitio. */
+
+/* Barra de desplazamiento fina estilo macOS: sin riel, pulgar redondeado y translúcido */
+/* Firefox: solo propiedades estándar (en Chrome anularían los estilos ::-webkit-) */
+@supports (-moz-appearance: none) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.28) transparent;
+  }
+}
+
+/* Chrome, Edge y Safari */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* El borde transparente + background-clip deja el pulgar visible más delgado (~6px) */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.28);
+  border: 2px solid transparent;
+  border-radius: 980px;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+  display: none;
+  background: transparent;
+}
