@@ -38,11 +38,13 @@
   right: 0;
   bottom: 72px;
   width: 340px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.96);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  background: #fff; /* sólido: bordes más nítidos que con desenfoque */
+  /* Contorno fino + sombra corta y suave */
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 6px 20px rgba(0, 0, 0, 0.08);
   color: var(--sp-text);
   overflow: hidden;
   animation: clb-support-in 0.18s ease-out;
@@ -134,7 +136,7 @@
   height: 100%;
   padding: 12px;
   border: 1px solid var(--sp-line);
-  border-radius: 14px;
+  border-radius: 10px;
   background: #fff;
   color: var(--sp-text);
   text-decoration: none;
@@ -204,7 +206,7 @@
   margin-top: 14px;
   padding: 12px 14px 12px 18px;
   border-top: 1px solid var(--sp-line);
-  background: #fafafc;
+  background: #fff;
 }
 .clb-support__footer strong {
   display: block;
