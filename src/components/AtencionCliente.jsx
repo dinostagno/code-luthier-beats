@@ -1,22 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FiX, FiChevronRight } from 'react-icons/fi';
+import { LuShoppingBag, LuPackage, LuTruck, LuMessageCircle, LuX, LuArrowUpRight } from 'react-icons/lu';
 import { FaWhatsapp } from 'react-icons/fa';
 import Avatar from './Avatar';
 import { HORARIO_ATENCION, linkWhatsApp } from '../config';
+import { estadoAtencion } from '../utils/horario';
 import './AtencionCliente.css';
 
-// Atajos de consulta: cada uno abre WhatsApp con el mensaje ya escrito
+// Atajos de consulta: cada uno abre WhatsApp con el mensaje ya escrito.
+// `tono` define el color de la tarjeta (ver .clb-tile--* en el CSS).
 const TEMAS = [
-  { label: 'Quiero hacer un pedido', mensaje: 'Hola, quiero hacer un pedido.' },
-  { label: 'Consultar stock de un producto', mensaje: 'Hola, quería consultar el stock de un producto.' },
-  { label: 'Envíos y plazos de entrega', mensaje: 'Hola, ¿cómo funcionan los envíos y cuánto tardan?' },
-  { label: 'Otra consulta', mensaje: 'Hola, tengo una consulta.' },
+  { label: 'Hacer un pedido', detalle: 'Arma tu compra', Icono: LuShoppingBag, tono: 'cafe', mensaje: 'Hola, quiero hacer un pedido.' },
+  { label: 'Consultar stock', detalle: '¿Lo tenemos?', Icono: LuPackage, tono: 'azul', mensaje: 'Hola, quería consultar el stock de un producto.' },
+  { label: 'Envíos y plazos', detalle: 'Todo Chile', Icono: LuTruck, tono: 'verde', mensaje: 'Hola, ¿cómo funcionan los envíos y cuánto tardan?' },
+  { label: 'Otra consulta', detalle: 'Escríbenos', Icono: LuMessageCircle, tono: 'morado', mensaje: 'Hola, tengo una consulta.' },
 ];
 
 function AtencionCliente() {
   const [abierto, setAbierto] = useState(false);
   const raizRef = useRef(null);
   const botonRef = useRef(null);
+  const estado = estadoAtencion(); // se recalcula en cada apertura del panel
 
   // Cierra con Escape o con clic fuera del panel
   useEffect(() => {
@@ -43,35 +46,57 @@ function AtencionCliente() {
       {abierto && (
         <div className="clb-support__panel" role="dialog" aria-labelledby="clb-support-title">
           <header className="clb-support__header">
-            <Avatar size={44} />
+            <Avatar size={40} />
             <div>
               <h2 id="clb-support-title">Hola, ¿te ayudamos?</h2>
-              <p>Respondemos por WhatsApp · {HORARIO_ATENCION}</p>
+              <p className="clb-support__status">
+                <span className={`clb-support__dot ${estado.abierto ? 'is-open' : ''}`} aria-hidden="true" />
+                {estado.texto}
+              </p>
             </div>
             <button type="button" className="clb-support__close" onClick={() => setAbierto(false)} aria-label="Cerrar">
-              <FiX />
+              <LuX />
             </button>
           </header>
 
-          <ul className="clb-support__topics">
-            {TEMAS.map((t) => (
-              <li key={t.label}>
-                <a href={linkWhatsApp(t.mensaje)} target="_blank" rel="noopener noreferrer">
-                  {t.label}
-                  <FiChevronRight aria-hidden="true" />
+          <p className="clb-support__label">¿En qué te ayudamos?</p>
+
+          <ul className="clb-support__tiles">
+            {TEMAS.map(({ label, detalle, Icono, tono, mensaje }) => (
+              <li key={label}>
+                <a
+                  className={`clb-tile clb-tile--${tono}`}
+                  href={linkWhatsApp(mensaje)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="clb-tile__top">
+                    <span className="clb-tile__icon"><Icono aria-hidden="true" /></span>
+                    <LuArrowUpRight className="clb-tile__go" aria-hidden="true" />
+                  </span>
+                  <span className="clb-tile__label">{label}</span>
+                  <span className="clb-tile__detail">{detalle}</span>
                 </a>
               </li>
             ))}
           </ul>
 
-          <a
-            className="clb-support__cta"
-            href={linkWhatsApp('Hola, vengo desde la tienda online.')}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaWhatsapp aria-hidden="true" /> Escribir por WhatsApp
-          </a>
+          <footer className="clb-support__footer">
+            <div>
+              <strong>¿Prefieres escribir directo?</strong>
+              <span>{HORARIO_ATENCION}</span>
+            </div>
+            <a
+              className="clb-support__wa"
+              href={linkWhatsApp('Hola, vengo desde la tienda online.')}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escribir por WhatsApp"
+              title="Escribir por WhatsApp"
+            >
+              <FaWhatsapp aria-hidden="true" />
+            </a>
+          </footer>
         </div>
       )}
 
