@@ -25,12 +25,12 @@
   border: 0;
   border-radius: 50%;
   background: #111;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22), 0 0 0 2px #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22); /* sin anillo blanco: borde más suave */
   cursor: pointer;
   transition: box-shadow var(--sp-fast);
 }
 .clb-support__fab svg { display: block; }
-.clb-support__fab:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 2px #fff; }
+.clb-support__fab:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
 
 /* Panel */
 .clb-support__panel {

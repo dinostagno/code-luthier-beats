@@ -108,7 +108,7 @@ function AtencionCliente() {
         aria-label={abierto ? 'Cerrar atención al cliente' : 'Abrir atención al cliente'}
         aria-expanded={abierto}
       >
-        <Avatar size={56} />
+        <Avatar size={56} conFondo={false} />
       </button>
     </div>
   );
