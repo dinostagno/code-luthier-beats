@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { LuShoppingBag, LuPackage, LuTruck, LuMessageCircle, LuX, LuArrowUpRight } from 'react-icons/lu';
-import { FaWhatsapp } from 'react-icons/fa';
+import { IoLogoWhatsapp } from 'react-icons/io5';
 import Avatar from './Avatar';
 import { HORARIO_ATENCION, linkWhatsApp } from '../config';
 import { estadoAtencion } from '../utils/horario';
@@ -94,7 +94,7 @@ function AtencionCliente() {
               aria-label="Escribir por WhatsApp"
               title="Escribir por WhatsApp"
             >
-              <FaWhatsapp aria-hidden="true" />
+              <IoLogoWhatsapp aria-hidden="true" />
             </a>
           </footer>
         </div>
