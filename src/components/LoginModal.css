@@ -15,8 +15,12 @@
 .clb-login .modal-content {
   position: relative;
   border: 0;
-  border-radius: 22px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  border-radius: 14px;
+  background: #fff;
+  /* Sin contorno: solo sombra suave (mismo estilo que el panel de atención) */
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.05),
+    0 8px 28px rgba(0, 0, 0, 0.12);
   color: var(--login-text);
   overflow: hidden;
 }
@@ -86,16 +90,17 @@
   width: 100%;
   height: 56px;
   padding: 22px 16px 6px;
-  border: 1px solid var(--login-border);
-  border-radius: 12px;
-  background: #fff;
+  border: 1px solid transparent; /* borde visible solo con foco */
+  border-radius: 10px;
+  background: #f5f5f7;
   color: var(--login-text);
   font-size: 17px;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
 }
 .clb-field input:focus {
   border-color: var(--login-accent);
+  background: #fff;
   box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
 }
 .clb-field label {
@@ -170,8 +175,8 @@
 
 .clb-login__footer {
   padding: 18px 40px;
-  border-top: 1px solid #f0f0f2;
-  background: #fafafc;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  background: #fff;
   color: var(--login-muted);
   font-size: 14px;
   text-align: center;
